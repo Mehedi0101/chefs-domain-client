@@ -4,7 +4,7 @@ import logo from "../../assets/logo/chefs-domain-logo.png";
 
 const Footer = () => {
     return (
-        <footer className=" md:p-10 px-5 py-10 text-neutral-content" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url(${footerBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
+        <footer className=" md:p-10 px-5 py-10 text-neutral-content mt-20" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url(${footerBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
             <div className="footer">
                 <aside className="text-sm">
                     <Link to='/'><img className="w-40" src={logo} alt="" /></Link>

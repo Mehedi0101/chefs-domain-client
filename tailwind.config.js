@@ -10,7 +10,10 @@ export default {
         'primary': ['"Open Sans"', 'sans-serif'],
       },
       colors: {
-        'primary': '#FF6B6B'
+        'primary': '#FF6B6B',
+        'dark1': '#3e3930',
+        'dark2': '#776f60',
+        'dark3': '#bdb5aa'
       },
     },
   },
