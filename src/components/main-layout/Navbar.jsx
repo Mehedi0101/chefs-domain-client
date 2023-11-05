@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <>
             {/* large device */}
-            <div className="bg-black flex justify-between items-center text-white px-10 py-2 text-sm font-medium">
+            <div className="absolute flex justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-full max-w-screen-2xl">
                 <div className="flex-[1] text-left">
                     <img className="w-40 max-w-[33%]" src={logo} alt="" />
                 </div>
@@ -22,7 +22,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex-[1] text-right">
-                    <button className="px-5 py-2 bg-primary">LOGIN</button>
+                    <button className="px-5 py-2 font-bold bg-white text-primary hover:bg-primary hover:text-white">LOGIN</button>
                 </div>
             </div>
         </>

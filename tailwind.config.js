@@ -13,6 +13,6 @@ export default {
         'primary': '#FF6B6B'
       },
     },
-    plugins: [],
-  }
+  },
+  plugins: [require("daisyui")],
 }
