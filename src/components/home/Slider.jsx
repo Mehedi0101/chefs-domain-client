@@ -3,9 +3,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
-import banner1 from '../../assets/Banner/club-sandwich.jpg';
-import banner2 from '../../assets/Banner/top-view-table.jpg';
-import banner3 from '../../assets/Banner/traditional-indian-soup-lentils.jpg';
+import banner1 from '../../assets/banner/club-sandwich.jpg';
+import banner2 from '../../assets/banner/top-view-table.jpg';
+import banner3 from '../../assets/banner/traditional-indian-soup-lentils.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const Slider = () => {
@@ -32,7 +32,7 @@ const Slider = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${banner1})` }}>
+                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${banner1})`}}>
                         <div className="hero-overlay bg-opacity-60 bg-[#1C1C1C]"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-lg">

@@ -17,7 +17,7 @@ const Navbar = () => {
             {/* large device */}
             <div className="hidden absolute lg:flex justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-full max-w-screen-2xl">
                 <div className="flex-[1] text-left">
-                    <img className="w-40 max-w-[33%]" src={logo} alt="" />
+                    <Link to='/'><img className="w-40 max-w-[33%]" src={logo} alt="" /></Link>
                 </div>
 
                 <div className="flex-[1] flex gap-10 justify-center list-none">
@@ -32,7 +32,7 @@ const Navbar = () => {
             </div>
 
             {/* medium device */}
-            <div className={`absolute z-10 flex items-center justify-between lg:hidden md:px-10 px-5 py-2 text-white w-full`}>
+            <div className={`absolute z-10 flex gap-2 items-center justify-between lg:hidden md:px-10 px-5 py-2 text-white w-full`}>
                 <div className="flex sm:gap-5 gap-2 items-center">
                     <FiMenu onClick={() => setShowMenu(!showMenu)} className="text-2xl cursor-pointer" />
                     <Link to='/'><img className="h-14 max-w-full cursor-pointer" src={logo} alt="" /></Link>
