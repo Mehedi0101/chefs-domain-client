@@ -3,6 +3,8 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import FoodItems from "../pages/FoodItems";
+import axios from "axios";
 
 const routes = createBrowserRouter([
     {
@@ -21,6 +23,11 @@ const routes = createBrowserRouter([
                 path: '/register',
                 element: <SignUp></SignUp>
             },
+            {
+                path: '/food-items',
+                element: <FoodItems></FoodItems>,
+                loader: () => axios.get('http://localhost:5000/foodCount')
+            }
         ]
     }
 ])

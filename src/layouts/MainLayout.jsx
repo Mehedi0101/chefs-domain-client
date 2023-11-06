@@ -8,7 +8,9 @@ const MainLayout = () => {
             <div className="relative">
                 <Navbar></Navbar>
             </div>
-            <Outlet></Outlet>
+            <div className="min-h-[60vh]">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );
