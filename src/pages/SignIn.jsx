@@ -54,12 +54,12 @@ const SignIn = () => {
     }
     return (
         <>
-            <div className="hero min-h-screen pt-28 md:px-10 px-5">
-                <div className="hero-content flex-row justify-between">
-                    <div className="text-center lg:text-left hidden lg:block w-1/3">
+            <div className="min-h-screen pt-28 md:px-10 px-5">
+                <div className="flex items-center">
+                    <div className="text-center hidden lg:block lg:w-1/3 ml-auto">
                         <img className="max-h-full max-w-full" src={chef} alt="" />
                     </div>
-                    <div className="pt-20 pb-10 flex flex-col justify-center items-center font-primary">
+                    <div className="pt-20 pb-10 font-primary max-w-full mx-auto">
                         <form onSubmit={handleLogin} className="text-dark1 xl:p-14 lg:p-12 md:p-10 p-8 border border-dark3 rounded text-sm md:text-base max-w-[90%] mx-auto bg-slate-100">
                             <h2 className="font-bold text-3xl md:text-4xl mb-10 font-secondary">Sign In</h2>
                             <input className="outline-none border-b-2 border-dark3 font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent" type="email" name="email" id="email" placeholder="Email" required />
@@ -74,8 +74,8 @@ const SignIn = () => {
                                 credentialsError && <p className="text-red-500 text-xs -mt-8 mb-8 max-w-full w-[400px]">*Invalid email and password</p>
                             }
                             <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Sign In</button>
-                            <div className="flex justify-center gap-1 text-sm font-medium">
-                                <p>Don&apos;t have an account?</p>
+                            <div className="flex flex-wrap justify-center gap-1 text-sm font-medium">
+                                <p className="text-center">Don&apos;t have an account?</p>
                                 <Link className="text-primary underline" to='/register'>Sign Up</Link>
                             </div>
                             <div className="max-w-[90%] w-[400px]">

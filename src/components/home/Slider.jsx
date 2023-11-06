@@ -21,7 +21,7 @@ const Slider = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 10000,
+                    delay: 6000,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -39,7 +39,7 @@ const Slider = () => {
                                 <h5 className='lg:text-xs text-[10px] tracking-widest font-light mb-2'>TASTY AND CRUNCHY</h5>
                                 <h1 className="mb-5 xl:text-6xl lg:text-5xl md:text-4xl text-3xl font-bold">Savor Culinary Excellence</h1>
                                 <p className="mb-5 lg:text-base text-sm font-medium">Embark on a gastronomic journey that transcends the ordinary. Our expert chefs blend passion and innovation, creating culinary masterpieces that delight the senses.</p>
-                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white hover:bg-white hover:text-primary active:scale-95 transition-all">VIEW MENU</button>
+                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white active:scale-95 transition-all">VIEW MENU</button>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const Slider = () => {
                                 <h5 className='lg:text-xs text-[10px] tracking-widest font-light mb-2'>ROBUST AND DELICATE</h5>
                                 <h1 className="mb-5 xl:text-6xl lg:text-5xl md:text-4xl text-3xl font-bold">Discover Unforgettable Moments</h1>
                                 <p className="mb-5 lg:text-base text-sm font-medium">Our restaurant is where memories are made, and every meal is an opportunity to create something beautiful. Come share those moments with us.</p>
-                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white hover:bg-white hover:text-primary active:scale-95 transition-all">VIEW MENU</button>
+                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white active:scale-95 transition-all">VIEW MENU</button>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const Slider = () => {
                                 <h5 className='lg:text-xs text-[10px] tracking-widest font-light mb-2'>LUSH AND AROMATIC</h5>
                                 <h1 className="mb-5 xl:text-6xl lg:text-5xl md:text-4xl text-3xl font-bold">Elevate Your Senses</h1>
                                 <p className="mb-5 lg:text-base text-sm font-medium">At <span className='font-bold'>CHEF&apos;S DOMAIN</span> , we believe in the power of taste and presentation. Immerse yourself in an extraordinary culinary journey that awakens your senses.</p>
-                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white hover:bg-white hover:text-primary active:scale-95 transition-all">VIEW MENU</button>
+                                <button onClick={handleViewMenu} className="px-5 py-2 font-semibold text-sm bg-primary text-white active:scale-95 transition-all">VIEW MENU</button>
                             </div>
                         </div>
                     </div>
