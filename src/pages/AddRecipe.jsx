@@ -69,7 +69,7 @@ const AddRecipe = () => {
                 </select>
                 <br />
 
-                <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent`} type="text" name="quantity" id="quantity" placeholder="Quantity" required />
+                <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent`} type="number" min={1} name="quantity" id="quantity" placeholder="Quantity" required />
                 <br />
 
                 <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent`} type="text" name="price" id="price" placeholder="Price (USD)" required />
@@ -88,7 +88,7 @@ const AddRecipe = () => {
                     <textarea className={`outline-none px-2 py-1 w-full resize-none placeholder:font-medium bg-transparent`} name="description" id="description" cols="30" rows="10" placeholder="Short Description" required></textarea>
                 </div>
 
-                <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Add Product</button>
+                <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Add Recipe</button>
             </form>
         </div>
     );

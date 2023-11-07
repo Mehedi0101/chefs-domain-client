@@ -28,7 +28,7 @@ const FoodDetails = () => {
 
                     <div className="flex items-center mb-2">
                         <span className="font-bold mr-2 text-lg">Serving: </span>
-                        <span className="text-xl font-extrabold mr-1">{serving_size} </span>person
+                        <span className="text-xl font-extrabold mr-1">{serving_size || 1} </span>person
                     </div>
 
                     <div className="flex items-center mb-2">

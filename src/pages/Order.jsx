@@ -25,19 +25,17 @@ const Order = () => {
         const quantity = form.quantity.value;
         const date = new Date();
 
-        console.log(date);
-
-        if (parseInt(quantity) > parseInt(available_quantity)) {
-            Swal.fire(
-                'Order Placement Failed!',
-                `Sorry, We currently don't have enough ${foodItem} in stock`,
-                'error'
-            )
-        }
-        else if(made_by_email === currentUser.email){
+        if (made_by_email === currentUser.email) {
             Swal.fire(
                 'Order Placement Failed!',
                 `Cannot Order Your Own Recipe`,
+                'error'
+            )
+        }
+        else if (parseInt(quantity) > parseInt(available_quantity)) {
+            Swal.fire(
+                'Order Placement Failed!',
+                `Sorry, We currently don't have enough ${foodItem} in stock`,
                 'error'
             )
         }
@@ -62,8 +60,8 @@ const Order = () => {
                                     `Successfully Ordered ${quantity} Qty. of ${foodItem}.`,
                                     'success'
                                 )
-                                axios.patch(`http://localhost:5000/foods/${_id}`, {quantity})
-                                .then()
+                                axios.patch(`http://localhost:5000/foods/${_id}`, { quantity })
+                                    .then()
                             }
                         })
                 }
