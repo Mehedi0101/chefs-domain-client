@@ -11,12 +11,16 @@ import chef from "../assets/Authentication/chef-cartoon.png";
 
 const SignUp = () => {
     document.title = "Registration";
-    const { signUpEmailPassword, logoutUser, googleLogin, setLoading } = useContext(AuthContext);
+    const { signUpEmailPassword, logoutUser, googleLogin, setLoading, currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [passwordError, setPasswordError] = useState('');
     const [alreadyExistError, setAlreadyExistError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const { state } = useLocation();
+
+    if(currentUser){
+        navigate('/');
+    }
 
     const handleRegister = e => {
         e.preventDefault();

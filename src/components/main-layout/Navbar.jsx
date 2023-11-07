@@ -66,7 +66,7 @@ const Navbar = () => {
                                     <div className="flex gap-2">
                                         <Link to='/user-profile' onClick={() => setShowUser(false)}><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">PROFILE</button></Link>
 
-                                        <Link to='/login'><button onClick={handleLogout} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all">SIGN OUT</button></Link>
+                                        <Link to='/login'><button onClick={() => { handleLogout(); setShowUser(false) }} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all">SIGN OUT</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
             {/* medium device */}
             <div className={`absolute z-10 flex gap-2 items-center justify-between lg:hidden md:px-10 px-5 py-2 text-white w-full`} style={(location.pathname) !== '/' ? navbg : {}}>
                 <div className="flex sm:gap-5 gap-2 items-center">
-                    <FiMenu onClick={() => {setShowMenu(!showMenu); setShowUser(false)}} className="text-2xl cursor-pointer" />
+                    <FiMenu onClick={() => { setShowMenu(!showMenu); setShowUser(false) }} className="text-2xl cursor-pointer" />
                     <Link to='/'><img className="h-14 max-w-full cursor-pointer" src={logo} alt="" /></Link>
                 </div>
                 <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-16 bg-[#000000BB] px-8 py-5 rounded space-y-3 z-10 text-white list-none text-sm`}>
@@ -99,7 +99,7 @@ const Navbar = () => {
                                     <div className="flex gap-2 flex-wrap">
                                         <Link onClick={() => setShowUser(false)} className="w-full block" to='/user-profile'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all w-full block">PROFILE</button></Link>
 
-                                        <Link className="w-full block" to='/login'><button onClick={handleLogout} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all w-full block">SIGN OUT</button></Link>
+                                        <Link className="w-full block" to='/login'><button onClick={() => { handleLogout(); setShowUser(false) }} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all w-full block">SIGN OUT</button></Link>
                                     </div>
                                 </div>
                             </div>

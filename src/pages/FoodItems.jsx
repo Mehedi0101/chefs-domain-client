@@ -23,7 +23,6 @@ const FoodItems = () => {
     useEffect(() => {
         axios.get(`http://localhost:5000/foods?search=${search}&page=${currentPage}&size=${contentPerPage}`)
             .then(res => {
-                console.log(res.data.result);
                 setCount(res.data.count);
                 setMenu(res.data.result);
             })

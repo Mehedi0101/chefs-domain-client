@@ -10,9 +10,14 @@ import chef from "../assets/Authentication/chef-cartoon.png";
 const SignIn = () => {
     document.title = "Login";
     const [showPassword, setShowPassword] = useState(false);
-    const { loginEmailPassword, googleLogin, setLoading } = useContext(AuthContext);
+    const { loginEmailPassword, googleLogin, setLoading, currentUser } = useContext(AuthContext);
     const [credentialsError, setCredentialsError] = useState(false);
     const navigate = useNavigate();
+
+    if(currentUser){
+        navigate('/');
+    }
+    
     const { state } = useLocation();
 
     const handleLogin = e => {

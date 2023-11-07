@@ -2,57 +2,64 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
+import axios from "axios";
 
 const Order = () => {
     document.title = 'Update';
 
-    const { _id, name, image, category, price, made_by_name, origin, serving_size, ingredients, preparation_method, storage_instructions, description, available_quantity } = useLoaderData().data;
+    const { _id, name, image, price, available_quantity } = useLoaderData().data;
 
     const { currentUser } = useContext(AuthContext);
 
 
     const handleOrderConfirm = e => {
         e.preventDefault();
-        // Swal.fire({
-        //     title: `Order Confirmation for 2 Qty. of ${name}?`,
-        //     text: "Number",
-        //     icon: 'info',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Confirm'
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         const form = e.target;
+        const form = e.target;
 
-        //         const name = form.name.value;
-        //         const image = form.image.value;
-        //         const brand = form.brand.value;
-        //         const type = form.type.value;
-        //         const price = form.price.value;
-        //         const rating = form.rating.value;
+        const customerName = form.customerName.value;
+        const customerEmail = form.customerEmail.value;
+        const foodId = _id;
+        const foodItem = form.foodName.value;
+        const photo = image;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const date = form.date.value;
 
-        //         const updatedProduct = { name, image, brand, type, price, rating };
+        if (parseInt(quantity) > parseInt(available_quantity)) {
+            Swal.fire(
+                'Order Placement Failed!',
+                `Sorry, We currently don't have enough ${foodItem} in stock`,
+                'error'
+            )
+        }
+        else {
+            Swal.fire({
+                title: `Confirm Your Order`,
+                text: `Order Confirmation for ${quantity} Qty. of ${foodItem}`,
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirm'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const orderData = { customerName, customerEmail, foodId, foodItem, photo, price, quantity, date };
 
-        //         fetch(`https://drive-elegance-serverside.vercel.app/products-id/${userId}`, {
-        //             method: 'PUT',
-        //             headers: {
-        //                 'content-type': 'application/json'
-        //             },
-        //             body: JSON.stringify(updatedProduct)
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 if (data.matchedCount > 0) {
-        //                     Swal.fire(
-        //                         'Success!',
-        //                         `${name} has been ordered successfully.`,
-        //                         'success'
-        //                     )
-        //                 }
-        //             })
-        //     }
-        // })
+                    axios.post('http://localhost:5000/order', orderData)
+                        .then(res => {
+                            if (res?.data?.insertedId || res?.data?.modifiedCount > 0) {
+                                Swal.fire(
+                                    'Success!',
+                                    `Successfully Ordered ${quantity} Qty. of ${foodItem}.`,
+                                    'success'
+                                )
+                                axios.patch(`http://localhost:5000/foods/${_id}`, {quantity})
+                                .then()
+                            }
+                        })
+                }
+            })
+        }
     }
 
     return (

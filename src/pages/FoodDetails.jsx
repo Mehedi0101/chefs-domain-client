@@ -43,7 +43,10 @@ const FoodDetails = () => {
 
 
                     <div className="mb-2">
-                        <span className="mr-2 text-lg font-bold">Ingredients: </span>{ingredients.map((indgredient, idx) => <span className="mr-4 font-medium" key={idx}>{indgredient || "N/A"}</span>)}
+                        <span className="mr-2 text-lg font-bold">Ingredients: </span>
+                        <div className="flex flex-wrap">
+                            {ingredients.map((ingredient, idx) => <span className="mr-4 font-medium" key={idx}>{ingredient}</span>)}
+                        </div>
                     </div>
 
                     <div className="mb-2">

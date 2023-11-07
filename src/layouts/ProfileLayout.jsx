@@ -11,7 +11,7 @@ const ProfileLayout = () => {
     }
 
     return (
-        <div style={asideBg} className="flex flex-row md:flex-col p-5 md:p-10 lg:p-20 md:gap-10 gap-3 justify-between text-center font-bold text-white md:text-base text-xs">
+        <div style={asideBg} className="flex flex-row md:flex-col p-5 md:p-10 lg:p-20 md:gap-10 gap-3 justify-between text-center font-bold text-white md:text-base text-xs md:sticky top-0 static w-full md:w-fit">
             <NavLink to='/user-profile/'>USER INFO</NavLink>
             <NavLink to='/user-profile/my-recipes'>MY RECIPES</NavLink>
             <NavLink to='/user-profile/my-orders'>MY ORDERS</NavLink>
