@@ -23,7 +23,7 @@ const FoodDetails = () => {
 
                     <div className="mb-2">
                         <span className="font-bold mr-2 text-lg">Type: </span>
-                        <span className="px-2 py-1 rounded-full bg-primary text-white font-bold text-sm">{category}</span>
+                        <span className="px-2 py-1 rounded-full bg-primary text-white font-bold text-sm">{category === "Select a Category" ? "N/A" : category}</span>
                     </div>
 
                     <div className="flex items-center mb-2">
@@ -45,7 +45,7 @@ const FoodDetails = () => {
                     <div className="mb-2">
                         <span className="mr-2 text-lg font-bold">Ingredients: </span>
                         <div className="flex flex-wrap">
-                            {ingredients.map((ingredient, idx) => <span className="mr-4 font-medium" key={idx}>{ingredient}</span>)}
+                            {ingredients?.map((ingredient, idx) => <span className="mr-4 font-medium" key={idx}>{ingredient}</span>) || "N/A"}
                         </div>
                     </div>
 

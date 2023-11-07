@@ -12,7 +12,7 @@ const Item = ({ item }) => {
 
             <div className='lg:flex-[2] flex-[1] mr-auto'>
                 <h2 className='text-2xl font-bold mb-3'>{name}</h2>
-                <div className='text-sm text-white font-bold mb-2 bg-primary w-fit px-2 py-1 rounded-full'>{category}</div>
+                <div className='text-sm text-white font-bold mb-2 bg-primary w-fit px-2 py-1 rounded-full'>{category === "Select a Category" ? "N/A" : category}</div>
 
                 <div className='flex items-center gap-2 text-[#2b2b2bc7] mb-1'><span className='text-[#000000c7] text-base font-bold'>Price: </span><div className='flex items-center'><BiDollar className='text-2xl' /><span className='text-xl font-extrabold'>{price}</span></div></div>
 

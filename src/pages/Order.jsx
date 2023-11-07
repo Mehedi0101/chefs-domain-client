@@ -7,7 +7,7 @@ import axios from "axios";
 const Order = () => {
     document.title = 'Update';
 
-    const { _id, name, image, price, available_quantity } = useLoaderData().data;
+    const { _id, name, image, price, available_quantity, made_by_email } = useLoaderData().data;
 
     const { currentUser } = useContext(AuthContext);
 
@@ -29,6 +29,13 @@ const Order = () => {
             Swal.fire(
                 'Order Placement Failed!',
                 `Sorry, We currently don't have enough ${foodItem} in stock`,
+                'error'
+            )
+        }
+        else if(made_by_email === currentUser.email){
+            Swal.fire(
+                'Order Placement Failed!',
+                `Cannot Order Your Own Recipe`,
                 'error'
             )
         }
