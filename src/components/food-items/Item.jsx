@@ -20,7 +20,7 @@ const Item = ({ item }) => {
             </div>
 
             <Link className='w-full md:w-fit' to={`/food-details/${_id}`}>
-                <button className='px-5 py-2 bg-primary text-white active:scale-95 transition-transform font-medium mb-3 w-full md:w-fit lg:mr-20'>DETAILS</button>
+                <button className='px-5 py-2 bg-primary text-white active:scale-95 transition-transform font-semibold mb-3 w-full md:w-fit lg:mr-20'>DETAILS</button>
             </Link>
         </div>
     );

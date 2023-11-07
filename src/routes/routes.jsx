@@ -14,11 +14,13 @@ import MyRecipes from "../pages/MyRecipes";
 import Cart from "../pages/Cart";
 import AddRecipe from "../pages/AddRecipe";
 import Update from "../pages/Update";
+import Error from "../pages/Error";
 
 const routes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -52,7 +54,7 @@ const routes = createBrowserRouter([
                 element: <PrivateRoute><Update></Update></PrivateRoute>
             },
             {
-                path: '/user-profile',
+                path: '/user-profile/',
                 element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>,
                 children: [
                     {
