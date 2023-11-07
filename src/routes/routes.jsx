@@ -13,6 +13,7 @@ import UserInfo from "../pages/UserInfo";
 import MyRecipes from "../pages/MyRecipes";
 import Cart from "../pages/Cart";
 import AddRecipe from "../pages/AddRecipe";
+import Update from "../pages/Update";
 
 const routes = createBrowserRouter([
     {
@@ -44,6 +45,11 @@ const routes = createBrowserRouter([
                 path: '/order/:id',
                 loader: ({params}) => axios(`http://localhost:5000/foods/${params.id}`),
                 element: <PrivateRoute><Order></Order></PrivateRoute>
+            },
+            {
+                path: '/update/:id',
+                loader: ({params}) => axios(`http://localhost:5000/foods/${params.id}`),
+                element: <PrivateRoute><Update></Update></PrivateRoute>
             },
             {
                 path: '/user-profile',

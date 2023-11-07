@@ -23,7 +23,9 @@ const Order = () => {
         const photo = image;
         const price = form.price.value;
         const quantity = form.quantity.value;
-        const date = form.date.value;
+        const date = new Date();
+
+        console.log(date);
 
         if (parseInt(quantity) > parseInt(available_quantity)) {
             Swal.fire(
@@ -99,12 +101,6 @@ const Order = () => {
                     <br />
                     <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 mt-1 bg-transparent`} type="email" name="customerEmail" id="customerEmail" placeholder="Email" defaultValue={currentUser?.email} required disabled />
                     <br />
-
-                    <label className="font-extrabold mb-1" htmlFor="date">Date:</label>
-                    <br />
-                    <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 mt-1 bg-transparent cursor-text`} type="date" name="date" id="date" required />
-                    <br />
-
                     <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Confirm</button>
                 </form>
             </div>
