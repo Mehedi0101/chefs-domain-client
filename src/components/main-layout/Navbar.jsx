@@ -28,9 +28,9 @@ const Navbar = () => {
 
 
     const links = <>
-        <NavLink onClick={() => setShowUser(false)} to='/'>HOME</NavLink>
-        <NavLink onClick={() => setShowUser(false)} to='/food-items'>FOOD ITEMS</NavLink>
-        <NavLink onClick={() => setShowUser(false)} to='/blog'>BLOG</NavLink>
+        <NavLink onClick={() => { setShowUser(false); setShowMenu(false) }} to='/'>HOME</NavLink>
+        <NavLink onClick={() => { setShowUser(false); setShowMenu(false) }} to='/food-items'>FOOD ITEMS</NavLink>
+        <NavLink onClick={() => { setShowUser(false); setShowMenu(false) }} to='/blog'>BLOG</NavLink>
     </>
 
     const navbg = {

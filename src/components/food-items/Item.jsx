@@ -19,7 +19,7 @@ const Item = ({ item }) => {
                 <div className='text-[#2b2b2bc7] flex items-center gap-2 md:mx-0 mx-auto'><span className='text-base font-bold text-[#000000c7]'>Available: </span><div><span className='text-lg font-extrabold text-primary'>{available_quantity}</span> qty.</div></div>
             </div>
 
-            <Link to={`/food-details/${_id}`}>
+            <Link className='w-full md:w-fit' to={`/food-details/${_id}`}>
                 <button className='px-5 py-2 bg-primary text-white active:scale-95 transition-transform font-medium mb-3 w-full md:w-fit lg:mr-20'>DETAILS</button>
             </Link>
         </div>

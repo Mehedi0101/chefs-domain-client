@@ -21,7 +21,7 @@ const AddRecipe = () => {
         const origin = form.origin.value;
         const description = form.description.value;
         const available_quantity = form.quantity.value;
-        const orders_count = "0";
+        const orders_count = 0;
 
         const newProduct = { name, image, category, price, made_by_name, made_by_email, origin, description, available_quantity, orders_count }
 
