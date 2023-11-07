@@ -9,6 +9,10 @@ const FoodDetails = () => {
         navigate(`/food-items`);
     }
 
+    const handleOrder = () => {
+        navigate(`/order/${_id}`);
+    }
+
     return (
         <div className="md:px-10 px-5">
             <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold lg:pt-40 pt-28 lg:mb-10 mb-5 text-center">{name}</h2>
@@ -66,7 +70,7 @@ const FoodDetails = () => {
 
                     <div className="flex items-center justify-center gap-10 mt-10 flex-wrap-reverse">
                         <button onClick={handleGoBack} className="text-primary flex items-center gap-2 text-lg font-medium active:scale-95"><BiArrowBack />Go Back</button>
-                        <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform font-medium'>ORDER NOW</button>
+                        <button onClick={handleOrder} className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform font-medium'>ORDER NOW</button>
                     </div>
                 </div>
             </div>

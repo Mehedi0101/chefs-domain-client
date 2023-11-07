@@ -28,9 +28,9 @@ const Navbar = () => {
 
 
     const links = <>
-        <NavLink to='/'>HOME</NavLink>
-        <NavLink to='/food-items'>FOOD ITEMS</NavLink>
-        <NavLink to='/blog'>BLOG</NavLink>
+        <NavLink onClick={() => setShowUser(false)} to='/'>HOME</NavLink>
+        <NavLink onClick={() => setShowUser(false)} to='/food-items'>FOOD ITEMS</NavLink>
+        <NavLink onClick={() => setShowUser(false)} to='/blog'>BLOG</NavLink>
     </>
 
     const navbg = {
@@ -64,7 +64,7 @@ const Navbar = () => {
                                     <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">USER: </span>{currentUser.displayName}</p>
                                     <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">EMAIL: </span>{currentUser.email}</p>
                                     <div className="flex gap-2">
-                                        <Link to='/profile'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">PROFILE</button></Link>
+                                        <Link to='/user-profile' onClick={() => setShowUser(false)}><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">PROFILE</button></Link>
 
                                         <Link to='/login'><button onClick={handleLogout} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all">SIGN OUT</button></Link>
                                     </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
                                     <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">USER: </span>{currentUser.displayName}</p>
                                     <p onClick={() => { setShowUser(false) }} className="mb-3 hidden gap-2 min-[260px]:flex"><span className="font-bold">EMAIL: </span>{currentUser.email}</p>
                                     <div className="flex gap-2 flex-wrap">
-                                        <Link className="w-full block" to='/profile'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all w-full block">PROFILE</button></Link>
+                                        <Link onClick={() => setShowUser(false)} className="w-full block" to='/user-profile'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all w-full block">PROFILE</button></Link>
 
                                         <Link className="w-full block" to='/login'><button onClick={handleLogout} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all w-full block">SIGN OUT</button></Link>
                                     </div>
@@ -106,7 +106,6 @@ const Navbar = () => {
                             :
                             <Link to='/login'><button className="px-5 py-2 font-bold bg-white text-sm text-primary active:scale-95 transition-all">SIGN IN</button></Link>
                     }
-                    {/* <Link to='/login'><button className="px-5 py-2 font-bold bg-white text-sm text-primary hover:bg-primary hover:text-white active:scale-95 transition-all">SIGN IN</button></Link> */}
                 </div >
             </div >
         </>

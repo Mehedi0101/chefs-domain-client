@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const {pathname} = useLocation();
 
     if(loading){
-        return <div className="h-[60vh] flex justify-center items-center"><FadeLoader color="#f78da7" /></div>;
+        return <div className="min-h-screen flex justify-center items-center"><FadeLoader color="#f78da7" /></div>;
     }
 
     if(!currentUser) {

@@ -31,7 +31,7 @@ const FoodItems = () => {
 
     return (
         <div className="pt-40 md:px-10 px-5 min-h-[80vh]">
-            <h2 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold text-black mb-8">OUR MENU</h2>
+            <h2 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold text-black mb-8">Our Menu</h2>
 
             <form onSubmit={handleSearch} className="flex w-full max-w-md mx-auto md:mb-16 mb-8">
                 <input placeholder="Search here..." className="w-full outline-none border border-dark3 px-3 py-2" type="text" name="search" id="search" />

@@ -45,7 +45,7 @@ const SignIn = () => {
         googleLogin()
             .then(() => {
                 navigate(state || '/');
-                toast.loading('Signed in successfully', { id: toastId });
+                toast.success('Signed in successfully', { id: toastId });
             })
             .catch(() => { 
                 toast.error('Sing in failed', { id: toastId });
