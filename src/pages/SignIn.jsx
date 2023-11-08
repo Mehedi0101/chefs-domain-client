@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -11,15 +11,9 @@ import axios from "axios";
 const SignIn = () => {
     document.title = "SIGN IN";
     const [showPassword, setShowPassword] = useState(false);
-    const { loginEmailPassword, googleLogin, setLoading, currentUser, setGoogleLoginAttempt } = useContext(AuthContext);
+    const { loginEmailPassword, googleLogin, setLoading, setGoogleLoginAttempt } = useContext(AuthContext);
     const [credentialsError, setCredentialsError] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (currentUser) {
-            navigate('/');
-        }
-    })
 
 
     const { state } = useLocation();

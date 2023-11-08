@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
@@ -11,18 +11,12 @@ import chef from "../assets/Authentication/chef-cartoon.png";
 
 const SignUp = () => {
     document.title = "SIGN UP";
-    const { signUpEmailPassword, logoutUser, googleLogin, setLoading, currentUser, setGoogleLoginAttempt } = useContext(AuthContext);
+    const { signUpEmailPassword, logout, googleLogin, setLoading, setGoogleLoginAttempt } = useContext(AuthContext);
     const navigate = useNavigate();
     const [passwordError, setPasswordError] = useState('');
     const [alreadyExistError, setAlreadyExistError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const { state } = useLocation();
-
-    useEffect(() => {
-        if (currentUser) {
-            navigate('/');
-        }
-    })
 
     const handleRegister = e => {
         e.preventDefault();
@@ -49,7 +43,7 @@ const SignUp = () => {
             setPasswordError('password should contain at least a special character');
             return;
         }
-        
+
         const toastId = toast.loading('Creating account...');
 
         signUpEmailPassword(email, password)
@@ -60,8 +54,10 @@ const SignUp = () => {
                     .then(() => { })
                     .catch(() => { })
 
-                logoutUser();
-                navigate('/login');
+                logout()
+                    .then(() => {
+                        navigate('/login');
+                    })
             })
 
             .catch(error => {
@@ -79,7 +75,7 @@ const SignUp = () => {
                 navigate(state || '/');
                 toast.success('Signed up successfully', { id: toastId });
             })
-            .catch(() => { 
+            .catch(() => {
                 toast.error('Sing in failed', { id: toastId });
                 setLoading(false);
                 setGoogleLoginAttempt(false);
