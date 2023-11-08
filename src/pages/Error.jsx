@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import errorImg  from "../assets/error/404.png";
 
 const Error = () => {
-    document.title = 'Error';
+    document.title = 'ERROR!';
 
     const navigate = useNavigate();
 

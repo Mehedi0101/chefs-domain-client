@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 
 const Order = () => {
-    document.title = 'Update';
+    document.title = 'ORDER CONFIRMATION';
 
     const { _id, name, image, price, available_quantity, made_by_email } = useLoaderData().data;
 

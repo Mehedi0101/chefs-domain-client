@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 
 const Update = () => {
-    document.title = 'Update';
+    document.title = 'UPDATE RECIPE';
 
     const { _id, name, image, category, price, origin, description, available_quantity } = useLoaderData().data;
 

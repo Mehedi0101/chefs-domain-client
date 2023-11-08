@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { BsFillPencilFill } from "react-icons/bs";
 
 const MyRecipes = () => {
+    document.title = "MY RECIPES";
     const [addedItems, setAddedItems] = useState([]);
     const { currentUser } = useContext(AuthContext);
     const navigate = useNavigate();

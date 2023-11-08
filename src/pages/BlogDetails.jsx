@@ -3,7 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 
 const BlogDetails = () => {
     const { title, author, cover, date, description } = useLoaderData().data;
-    document.title = title;
+    document.title = title.toUpperCase();
     const navigate = useNavigate();
 
     const handleGoBack = () => {

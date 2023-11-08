@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const AddRecipe = () => {
 
-    document.title = 'Add Product';
+    document.title = "ADD RECIPE";
     const { currentUser } = useContext(AuthContext);
 
     const handleAddProduct = e => {

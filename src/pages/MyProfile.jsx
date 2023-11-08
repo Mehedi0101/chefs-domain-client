@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import ProfileLayout from "../layouts/ProfileLayout";
 
 const MyProfile = () => {
+    document.title = "MY PROFILE";
     return (
         <div className="lg:pt-40 pt-28">
             <h2 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold text-black mb-8">My Profile</h2>

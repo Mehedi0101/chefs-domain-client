@@ -3,6 +3,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 const UserInfo = () => {
+    document.title = "MY PROFILE";
     const { currentUser } = useContext(AuthContext);
 
     return (

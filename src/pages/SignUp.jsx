@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import chef from "../assets/Authentication/chef-cartoon.png";
 
 const SignUp = () => {
-    document.title = "Registration";
+    document.title = "SIGN UP";
     const { signUpEmailPassword, logoutUser, googleLogin, setLoading, currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [passwordError, setPasswordError] = useState('');

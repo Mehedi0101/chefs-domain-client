@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Item from "../food-items/Item";
 import { Link } from "react-router-dom";
+import { BsArrowRightShort } from "react-icons/bs"
 
 const PopularPicks = () => {
     const [popularItems, setPopularItems] = useState([]);
@@ -19,7 +20,7 @@ const PopularPicks = () => {
                     popularItems?.map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
-            <Link to='/food-items'><button className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all mt-10 block mx-auto">SEE ALL</button></Link>
+            <Link to='/food-items' className="flex text-primary justify-center items-center mt-10"><button className="font-bold active:scale-95 transition-all">SEE ALL</button><BsArrowRightShort className="text-3xl" /></Link>
         </div>
     );
 };

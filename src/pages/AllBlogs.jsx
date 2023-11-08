@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Blog from "../components/all-blogs/Blog";
 
 const AllBlogs = () => {
-    document.title = "Blogs";
+    document.title = "BLOG";
 
     const allBlogs = useLoaderData().data;
     console.log(allBlogs);

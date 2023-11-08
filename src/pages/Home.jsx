@@ -4,6 +4,7 @@ import Reviews from "../components/home/Reviews";
 import Slider from "../components/home/Slider";
 
 const Home = () => {
+    document.title = "CHEF'S DOMAIN"
     return (
         <div>
             <Slider></Slider>

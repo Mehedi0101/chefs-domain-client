@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 
 const FoodDetails = () => {
     const { _id, name, image, category, price, made_by_name, origin, serving_size, ingredients, preparation_method, storage_instructions, description, available_quantity } = useLoaderData().data;
+    document.title = name.toUpperCase();
     const navigate = useNavigate();
 
     const handleGoBack = () => {

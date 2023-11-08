@@ -5,6 +5,7 @@ import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/
 import "./styles/food-items.css";
 
 const FoodItems = () => {
+    document.title = "OUR MENU";
     const [count, setCount] = useState(0);
     const contentPerPage = 9;
     const numberOfPage = Math.ceil(count / contentPerPage);
@@ -49,12 +50,12 @@ const FoodItems = () => {
                                 menu?.map(item => <Item key={item._id} item={item}></Item>)
                             }
                         </div>
-                        <div className={`flex gap-5 items-center justify-center mt-14 ${count <= 9 ? 'hidden' : ''}`}>
-                            <button className="p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0 ? true : false}><MdOutlineArrowBackIosNew /></button>
+                        <div className={`flex gap-2 md:gap-5 items-center justify-center mt-14 ${count <= 9 ? 'hidden' : ''}`}>
+                            <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0 ? true : false}><MdOutlineArrowBackIosNew /></button>
                             {
-                                pages.map(page => <button key={page} className={`${page === currentPage && 'selected'} px-4 py-2 border-2 text-primary font-bold border-primary rounded`} onClick={() => setCurrentPage(page)}>{page}</button>)
+                                pages.map(page => <button key={page} className={`${page === currentPage && 'selected'} px-2 py-1 text-sm md:text-base md:px-4 md:py-2 border-2 text-primary font-bold border-primary rounded`} onClick={() => setCurrentPage(page)}>{page}</button>)
                             }
-                            <button className="p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === numberOfPage - 1 ? true : false}><MdOutlineArrowForwardIos /></button>
+                            <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === numberOfPage - 1 ? true : false}><MdOutlineArrowForwardIos /></button>
                         </div>
                     </>
             }

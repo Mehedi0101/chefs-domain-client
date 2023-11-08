@@ -7,6 +7,7 @@ import { BsTrash3 } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 const Cart = () => {
+    document.title = "MY ORDERS";
     const [orderedItems, setOrderedItems] = useState([]);
     const { currentUser } = useContext(AuthContext);
 
