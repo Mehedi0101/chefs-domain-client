@@ -1,23 +1,27 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import chef from "../assets/Authentication/chef-cartoon.png";
+import axios from "axios";
 
 
 const SignIn = () => {
     document.title = "SIGN IN";
     const [showPassword, setShowPassword] = useState(false);
-    const { loginEmailPassword, googleLogin, setLoading, currentUser } = useContext(AuthContext);
+    const { loginEmailPassword, googleLogin, setLoading, currentUser, setGoogleLoginAttempt } = useContext(AuthContext);
     const [credentialsError, setCredentialsError] = useState(false);
     const navigate = useNavigate();
 
-    if(currentUser){
-        navigate('/');
-    }
-    
+    useEffect(() => {
+        if (currentUser) {
+            navigate('/');
+        }
+    })
+
+
     const { state } = useLocation();
 
     const handleLogin = e => {
@@ -32,9 +36,10 @@ const SignIn = () => {
 
         loginEmailPassword(email, password)
             .then(() => {
+                axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true })
+                    .then(() => { })
                 toast.success('Signed in successfully', { id: toastId });
                 navigate(state || '/');
-                
             })
 
             .catch(() => {
@@ -49,14 +54,18 @@ const SignIn = () => {
         const toastId = toast.loading('Signing in...');
         googleLogin()
             .then(() => {
+                setGoogleLoginAttempt(true);
                 navigate(state || '/');
                 toast.success('Signed in successfully', { id: toastId });
             })
-            .catch(() => { 
+            .catch(() => {
                 toast.error('Sing in failed', { id: toastId });
+                setGoogleLoginAttempt(false);
                 setLoading(false);
             })
     }
+
+
     return (
         <>
             <div className="min-h-screen pt-28 md:px-10 px-5">

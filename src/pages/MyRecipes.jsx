@@ -11,7 +11,7 @@ const MyRecipes = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/food-by-chef?chefEmail=${currentUser?.email}`)
+        axios.get(`http://localhost:5000/food-by-chef?chefEmail=${currentUser?.email}`, { withCredentials: true })
             .then(res => setAddedItems(res.data))
     }, [currentUser])
 

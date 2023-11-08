@@ -12,7 +12,7 @@ const Cart = () => {
     const { currentUser } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/order?email=${currentUser?.email}`)
+        axios.get(`http://localhost:5000/order?email=${currentUser?.email}`, { withCredentials: true })
             .then(res => setOrderedItems(res.data))
     }, [currentUser])
 

@@ -7,9 +7,7 @@ import axios from "axios";
 const Update = () => {
     document.title = 'UPDATE RECIPE';
 
-    const { _id, name, image, category, price, origin, description, available_quantity } = useLoaderData().data;
-
-    console.log(available_quantity);
+    const { _id, name, image, category, price, origin, description, available_quantity, made_by_email } = useLoaderData().data;
 
     const { currentUser } = useContext(AuthContext);
 
@@ -36,10 +34,11 @@ const Update = () => {
                 const origin = form.origin.value;
                 const description = form.description.value;
                 const available_quantity = form.quantity.value;
+                const email = made_by_email;
 
-                const updateFood = { name, image, category, price, origin, description, available_quantity };
+                const updateFood = { name, image, category, price, origin, description, available_quantity, email };
 
-                axios.patch(`http://localhost:5000/food-update/${_id}`,updateFood)
+                axios.patch(`http://localhost:5000/food-update/${_id}`, updateFood, { withCredentials: true })
                     .then(res => {
                         if (res.data.matchedCount > 0) {
                             Swal.fire(
@@ -49,6 +48,13 @@ const Update = () => {
                             )
                             navigate(`/food-details/${_id}`)
                         }
+                    })
+                    .catch(() => {
+                        Swal.fire(
+                            'Update Failed!',
+                            `You are not authorized to update this recipe`,
+                            'error'
+                        )
                     })
             }
         })

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
@@ -11,16 +11,18 @@ import chef from "../assets/Authentication/chef-cartoon.png";
 
 const SignUp = () => {
     document.title = "SIGN UP";
-    const { signUpEmailPassword, logoutUser, googleLogin, setLoading, currentUser } = useContext(AuthContext);
+    const { signUpEmailPassword, logoutUser, googleLogin, setLoading, currentUser, setGoogleLoginAttempt } = useContext(AuthContext);
     const navigate = useNavigate();
     const [passwordError, setPasswordError] = useState('');
     const [alreadyExistError, setAlreadyExistError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const { state } = useLocation();
 
-    if(currentUser){
-        navigate('/');
-    }
+    useEffect(() => {
+        if (currentUser) {
+            navigate('/');
+        }
+    })
 
     const handleRegister = e => {
         e.preventDefault();
@@ -69,16 +71,18 @@ const SignUp = () => {
     }
 
     const handleGoogle = e => {
-        const toastId = toast.loading('Creating account...');
         e.preventDefault();
+        const toastId = toast.loading('Creating account...');
         googleLogin()
             .then(() => {
+                setGoogleLoginAttempt(true);
                 navigate(state || '/');
                 toast.success('Signed up successfully', { id: toastId });
             })
             .catch(() => { 
                 toast.error('Sing in failed', { id: toastId });
                 setLoading(false);
+                setGoogleLoginAttempt(false);
             })
     }
 

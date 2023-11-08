@@ -5,7 +5,6 @@ const AllBlogs = () => {
     document.title = "BLOG";
 
     const allBlogs = useLoaderData().data;
-    console.log(allBlogs);
     return (
         <div className="lg:pt-40 pt-28 md:px-10 px-5">
             <h2 className="md:text-4xl text-3xl text-center font-bold text-black mb-8">Blogs</h2>
