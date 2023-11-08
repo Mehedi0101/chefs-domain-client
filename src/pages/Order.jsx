@@ -32,7 +32,7 @@ const Order = () => {
                 'error'
             )
         }
-        else if (parseInt(quantity) > parseInt(available_quantity)) {
+        else if (parseInt(quantity) > parseInt(available_quantity) || parseInt(available_quantity) <= 0) {
             Swal.fire(
                 'Order Placement Failed!',
                 `Sorry, We currently don't have enough ${foodItem} in stock`,
