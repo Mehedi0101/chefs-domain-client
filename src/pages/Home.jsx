@@ -1,4 +1,5 @@
 import PopularPicks from "../components/home/PopularPicks";
+import Reviews from "../components/home/Reviews";
 import Slider from "../components/home/Slider";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <PopularPicks></PopularPicks>
+            <Reviews></Reviews>
         </div>
     );
 };
