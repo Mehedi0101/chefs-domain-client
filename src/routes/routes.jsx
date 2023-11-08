@@ -15,6 +15,8 @@ import Cart from "../pages/Cart";
 import AddRecipe from "../pages/AddRecipe";
 import Update from "../pages/Update";
 import Error from "../pages/Error";
+import AllBlogs from "../pages/AllBlogs";
+import BlogDetails from "../pages/BlogDetails";
 
 const routes = createBrowserRouter([
     {
@@ -40,18 +42,28 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/food-details/:id',
-                loader: ({params}) => axios(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
                 element: <FoodDetails></FoodDetails>
             },
             {
                 path: '/order/:id',
-                loader: ({params}) => axios(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
                 element: <PrivateRoute><Order></Order></PrivateRoute>
             },
             {
                 path: '/update/:id',
-                loader: ({params}) => axios(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
                 element: <PrivateRoute><Update></Update></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                loader: () => axios.get('http://localhost:5000/blogs'),
+                element: <AllBlogs></AllBlogs>
+            },
+            {
+                path: '/blog/:id',
+                loader: ({params}) => axios.get(`http://localhost:5000/blogs/${params.id}`),
+                element: <BlogDetails></BlogDetails>
             },
             {
                 path: '/user-profile/',
