@@ -38,7 +38,7 @@ const Update = () => {
 
                 const updateFood = { name, image, category, price, origin, description, available_quantity, email };
 
-                axios.patch(`http://localhost:5000/food-update/${_id}`, updateFood, { withCredentials: true })
+                axios.patch(`https://chefs-domain-server.vercel.app/food-update/${_id}`, updateFood, { withCredentials: true })
                     .then(res => {
                         if (res.data.matchedCount > 0) {
                             Swal.fire(

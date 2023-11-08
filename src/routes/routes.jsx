@@ -42,27 +42,27 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/food-details/:id',
-                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`https://chefs-domain-server.vercel.app/foods/${params.id}`),
                 element: <FoodDetails></FoodDetails>
             },
             {
                 path: '/order/:id',
-                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`https://chefs-domain-server.vercel.app/foods/${params.id}`),
                 element: <PrivateRoute><Order></Order></PrivateRoute>
             },
             {
                 path: '/update/:id',
-                loader: ({params}) => axios.get(`http://localhost:5000/foods/${params.id}`),
+                loader: ({params}) => axios.get(`https://chefs-domain-server.vercel.app/foods/${params.id}`),
                 element: <PrivateRoute><Update></Update></PrivateRoute>
             },
             {
                 path: '/blog',
-                loader: () => axios.get('http://localhost:5000/blogs'),
+                loader: () => axios.get('https://chefs-domain-server.vercel.app/blogs'),
                 element: <AllBlogs></AllBlogs>
             },
             {
                 path: '/blog/:id',
-                loader: ({params}) => axios.get(`http://localhost:5000/blogs/${params.id}`),
+                loader: ({params}) => axios.get(`https://chefs-domain-server.vercel.app/blogs/${params.id}`),
                 element: <BlogDetails></BlogDetails>
             },
             {

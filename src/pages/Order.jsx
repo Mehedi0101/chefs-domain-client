@@ -52,7 +52,7 @@ const Order = () => {
                 if (result.isConfirmed) {
                     const orderData = { customerName, customerEmail, foodId, foodItem, photo, price, quantity, date };
 
-                    axios.post('http://localhost:5000/order', orderData)
+                    axios.post('https://chefs-domain-server.vercel.app/order', orderData)
                         .then(res => {
                             if (res?.data?.insertedId || res?.data?.modifiedCount > 0) {
                                 Swal.fire(
@@ -60,7 +60,7 @@ const Order = () => {
                                     `Successfully Ordered ${quantity} Qty. of ${foodItem}.`,
                                     'success'
                                 )
-                                axios.patch(`http://localhost:5000/foods/${_id}`, { quantity })
+                                axios.patch(`https://chefs-domain-server.vercel.app/foods/${_id}`, { quantity })
                                     .then()
                             }
                         })

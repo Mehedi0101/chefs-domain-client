@@ -3,6 +3,7 @@ import axios from "axios";
 import Item from "../components/food-items/Item";
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md";
 import "./styles/food-items.css";
+import { Box, Skeleton } from "@mui/material";
 
 const FoodItems = () => {
     document.title = "OUR MENU";
@@ -13,6 +14,7 @@ const FoodItems = () => {
     const pages = [...Array(numberOfPage).keys()];
     const [menu, setMenu] = useState([]);
     const [search, setSearch] = useState("");
+    const [loadingData, setLoadingData] = useState(true);
 
     const handleSearch = e => {
         e.preventDefault();
@@ -22,10 +24,12 @@ const FoodItems = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/foods?search=${search}&page=${currentPage}&size=${contentPerPage}`)
+        setLoadingData(true);
+        axios.get(`https://chefs-domain-server.vercel.app/foods?search=${search}&page=${currentPage}&size=${contentPerPage}`)
             .then(res => {
                 setCount(res.data.count);
                 setMenu(res.data.result);
+                setLoadingData(false);
             })
     }, [currentPage, contentPerPage, search])
 
@@ -40,26 +44,39 @@ const FoodItems = () => {
 
 
             {
-                menu.length === 0
+                loadingData
                     ?
-                    <h3 className="md:text-3xl text-2xl font-bold text-center min-h-[60vh] flex justify-center items-center">NO MATCH FOUND</h3>
+                    <Box sx={{ width: screen }
+                    } >
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation="wave" />
+                    </Box>
                     :
-                    <>
-                        <div className="grid grid-cols-1 gap-10">
-                            {
-                                menu?.map(item => <Item key={item._id} item={item}></Item>)
-                            }
-                        </div>
-                        <div className={`flex gap-2 md:gap-5 items-center justify-center mt-14 ${count <= 9 ? 'hidden' : ''}`}>
-                            <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0 ? true : false}><MdOutlineArrowBackIosNew /></button>
-                            {
-                                pages.map(page => <button key={page} className={`${page === currentPage && 'selected'} px-2 py-1 text-sm md:text-base md:px-4 md:py-2 border-2 text-primary font-bold border-primary rounded`} onClick={() => setCurrentPage(page)}>{page}</button>)
-                            }
-                            <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === numberOfPage - 1 ? true : false}><MdOutlineArrowForwardIos /></button>
-                        </div>
-                    </>
+                    menu.length === 0
+                        ?
+                        <h3 className="md:text-3xl text-2xl font-bold text-center min-h-[60vh] flex justify-center items-center">NO MATCH FOUND</h3>
+                        :
+                        <>
+                            <div className="grid grid-cols-1 gap-10">
+                                {
+                                    menu?.map(item => <Item key={item._id} item={item}></Item>)
+                                }
+                            </div>
+                            <div className={`flex gap-2 md:gap-5 items-center justify-center mt-14 ${count <= 9 ? 'hidden' : ''}`}>
+                                <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0 ? true : false}><MdOutlineArrowBackIosNew /></button>
+                                {
+                                    pages.map(page => <button key={page} className={`${page === currentPage && 'selected'} px-2 py-1 text-sm md:text-base md:px-4 md:py-2 border-2 text-primary font-bold border-primary rounded`} onClick={() => setCurrentPage(page)}>{page}</button>)
+                                }
+                                <button className="md:p-2 hover:text-primary disabled:text-[#6969698c]" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === numberOfPage - 1 ? true : false}><MdOutlineArrowForwardIos /></button>
+                            </div>
+                        </>
             }
-        </div>
+        </div >
     );
 };
 

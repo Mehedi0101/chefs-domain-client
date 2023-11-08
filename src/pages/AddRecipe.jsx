@@ -25,9 +25,7 @@ const AddRecipe = () => {
 
         const newProduct = { name, image, category, price, made_by_name, made_by_email, origin, description, available_quantity, orders_count }
 
-        console.log(newProduct);
-
-        axios.post('http://localhost:5000/foods', newProduct)
+        axios.post('https://chefs-domain-server.vercel.app/foods', newProduct)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

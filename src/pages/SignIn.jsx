@@ -36,7 +36,7 @@ const SignIn = () => {
 
         loginEmailPassword(email, password)
             .then(() => {
-                axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true })
+                axios.post('https://chefs-domain-server.vercel.app/jwt', { email }, { withCredentials: true })
                     .then(() => { })
                 toast.success('Signed in successfully', { id: toastId });
                 navigate(state || '/');

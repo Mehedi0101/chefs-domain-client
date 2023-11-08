@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             setCurrentUser(user);
             if (googleLoginAttempt && user) {
-                axios.post('http://localhost:5000/jwt', { email: user?.email }, { withCredentials: true })
+                axios.post('https://chefs-domain-server.vercel.app/jwt', { email: user?.email }, { withCredentials: true })
                     .then(() => {
                         setGoogleLoginAttempt(false)
                     })
@@ -40,8 +40,8 @@ const AuthProvider = ({ children }) => {
 
     const logoutUser = () => {
         setLoading(true);
-        axios.post('http://localhost:5000/logout', { email: currentUser.email }, { withCredentials: true })
-            .then(res => console.log(res.data))
+        axios.post('https://chefs-domain-server.vercel.app/logout', { email: currentUser.email }, { withCredentials: true })
+            .then(() => { })
         return signOut(auth);
     }
 
