@@ -13,7 +13,7 @@ const Slider = () => {
     const navigate = useNavigate();
 
     const handleViewMenu = () => {
-        navigate('/');
+        navigate('/food-items');
     }
     return (
         <div>

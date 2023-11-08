@@ -13,7 +13,7 @@ const PopularPicks = () => {
 
     return (
         <div className="md:px-10 px-5">
-            <h2 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold text-black mb-8 md:mt-20 mt-10">Popular Picks</h2>
+            <h2 className="md:text-4xl text-3xl text-center font-bold text-black mb-8 md:mt-20 mt-10">Popular Picks</h2>
             <div className="grid grid-cols-1 gap-10">
                 {
                     popularItems?.map(item => <Item key={item._id} item={item}></Item>)
