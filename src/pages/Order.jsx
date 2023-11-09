@@ -75,7 +75,7 @@ const Order = () => {
 
     return (
         <div>
-            <div className="lg:pt-40 pt-28 flex flex-col justify-center items-center md:px-10 px-5">
+            <div className="lg:pt-40 pt-28 flex flex-col justify-center items-center md:px-10 px-5 max-w-screen-2xl mx-auto">
                 <form onSubmit={handleOrderConfirm} className="rounded text-sm md:text-base max-w-full mx-auto">
                     <h2 className={`font-bold text-3xl md:text-4xl mb-10`}>Place Your Order</h2>
 

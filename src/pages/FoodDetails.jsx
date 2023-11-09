@@ -15,7 +15,7 @@ const FoodDetails = () => {
     }
 
     return (
-        <div className="md:px-10 px-5">
+        <div className="md:px-10 px-5 max-w-screen-2xl mx-auto">
             <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold lg:pt-40 pt-28 lg:mb-10 mb-5 text-center">{name}</h2>
 
             <div className="">

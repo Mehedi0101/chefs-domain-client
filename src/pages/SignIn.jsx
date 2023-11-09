@@ -37,7 +37,7 @@ const SignIn = () => {
             })
 
             .catch(() => {
-                toast.error('Sing in failed', { id: toastId });
+                toast.error('Sign in failed', { id: toastId });
                 setCredentialsError(true);
                 setLoading(false);
             })
@@ -53,7 +53,7 @@ const SignIn = () => {
                 toast.success('Signed in successfully', { id: toastId });
             })
             .catch(() => {
-                toast.error('Sing in failed', { id: toastId });
+                toast.error('Sign in failed', { id: toastId });
                 setGoogleLoginAttempt(false);
                 setLoading(false);
             })
@@ -62,7 +62,7 @@ const SignIn = () => {
 
     return (
         <>
-            <div className="min-h-screen pt-28 md:px-10 px-5">
+            <div className="min-h-screen lg:pt-40 pt-28 md:px-10 px-5 max-w-screen-2xl mx-auto">
                 <div className="flex items-center">
                     <div className="text-center hidden lg:block lg:w-1/3 ml-auto">
                         <img className="max-h-full max-w-full" src={chef} alt="" />

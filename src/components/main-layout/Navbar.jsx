@@ -44,7 +44,7 @@ const Navbar = () => {
         <>
             {/* large device */}
             <div className="hidden absolute lg:block justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-screen" style={(location.pathname) !== '/' ? navbg : {}}>
-                <div className="flex px-10 justify-between items-center max-w-screen-2xl mx-auto">
+                <div className="flex justify-between items-center max-w-[1516px] mx-auto">
                     <div className="flex-[1] text-left">
                         <Link to='/'><img className="w-40 max-w-[33%]" src={logo} alt="" /></Link>
                     </div>
