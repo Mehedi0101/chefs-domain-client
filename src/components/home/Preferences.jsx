@@ -5,7 +5,7 @@ import luxury from "../../assets/preferences/affordable-luxury.png";
 
 const Preferences = () => {
     return (
-        <div className="md:px-10 px-5 mt-28 select-none">
+        <div className="md:px-10 px-5 mt-28 select-none max-w-screen-2xl mx-auto">
             <h2 className={`md:text-4xl text-3xl font-bold text-center mb-10 text-black`}>Our Main Preferences</h2>
             <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-between`}>
                 <div className="py-5 rounded-lg flex flex-col justify-between">

@@ -5,7 +5,7 @@ import ScrollToTop from "../utils/scrollToTop";
 
 const MainLayout = () => {
     return (
-        <div className="font-primary max-w-screen-2xl mx-auto">
+        <div className="font-primary">
             <ScrollToTop />
             <div className="relative">
                 <Navbar></Navbar>

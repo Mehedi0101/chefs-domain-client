@@ -43,36 +43,38 @@ const Navbar = () => {
     return (
         <>
             {/* large device */}
-            <div className="hidden absolute lg:flex justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-full max-w-screen-2xl" style={(location.pathname) !== '/' ? navbg : {}}>
-                <div className="flex-[1] text-left">
-                    <Link to='/'><img className="w-40 max-w-[33%]" src={logo} alt="" /></Link>
-                </div>
+            <div className="hidden absolute lg:block justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-screen" style={(location.pathname) !== '/' ? navbg : {}}>
+                <div className="flex px-10 justify-between items-center max-w-screen-2xl mx-auto">
+                    <div className="flex-[1] text-left">
+                        <Link to='/'><img className="w-40 max-w-[33%]" src={logo} alt="" /></Link>
+                    </div>
 
-                <div className="flex-[1] flex gap-10 justify-center list-none">
-                    {
-                        links
-                    }
-                </div>
+                    <div className="flex-[1] flex gap-10 justify-center list-none">
+                        {
+                            links
+                        }
+                    </div>
 
-                <div className="flex-[1] text-right">
-                    {
-                        currentUser
-                            ?
-                            <div className="flex items-center relative">
-                                <img onClick={() => { setShowUser(!showUser) }} className="w-12 h-12 object-cover rounded-full cursor-pointer border hover:border-2 border-primary ml-auto" src={currentUser.photoURL || defaultUser} alt="" />
-                                <div className={`absolute top-[60px] right-0 flex flex-col gap-3 text-white bg-[#000000BB] p-8 rounded z-10 ${!showUser && 'hidden'}`}>
-                                    <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">USER: </span>{currentUser.displayName}</p>
-                                    <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">EMAIL: </span>{currentUser.email}</p>
-                                    <div className="flex gap-2">
-                                        <Link to='/user-profile' onClick={() => setShowUser(false)}><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">PROFILE</button></Link>
+                    <div className="flex-[1] text-right">
+                        {
+                            currentUser
+                                ?
+                                <div className="flex items-center relative">
+                                    <img onClick={() => { setShowUser(!showUser) }} className="w-12 h-12 object-cover rounded-full cursor-pointer border hover:border-2 border-primary ml-auto" src={currentUser.photoURL || defaultUser} alt="" />
+                                    <div className={`absolute top-[60px] right-0 flex flex-col gap-3 text-white bg-[#000000BB] p-8 rounded z-10 ${!showUser && 'hidden'}`}>
+                                        <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">USER: </span>{currentUser.displayName}</p>
+                                        <p onClick={() => { setShowUser(false) }} className="mb-3 flex gap-2"><span className="font-bold">EMAIL: </span>{currentUser.email}</p>
+                                        <div className="flex gap-2">
+                                            <Link to='/user-profile' onClick={() => setShowUser(false)}><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">PROFILE</button></Link>
 
-                                        <Link to='/login'><button onClick={() => { handleLogout(); setShowUser(false) }} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all">SIGN OUT</button></Link>
+                                            <Link to='/login'><button onClick={() => { handleLogout(); setShowUser(false) }} className="px-5 py-2 font-bold bg-primary text-white active:scale-95 transition-all">SIGN OUT</button></Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            :
-                            <Link to='/login'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">SIGN IN</button></Link>
-                    }
+                                :
+                                <Link to='/login'><button className="px-5 py-2 font-bold bg-white text-primary active:scale-95 transition-all">SIGN IN</button></Link>
+                        }
+                    </div>
                 </div>
             </div>
 

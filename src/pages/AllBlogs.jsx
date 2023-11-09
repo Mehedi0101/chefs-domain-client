@@ -6,7 +6,7 @@ const AllBlogs = () => {
 
     const allBlogs = useLoaderData().data;
     return (
-        <div className="lg:pt-40 pt-28 md:px-10 px-5">
+        <div className="lg:pt-40 pt-28 md:px-10 px-5 max-w-screen-2xl mx-auto">
             <h2 className="md:text-4xl text-3xl text-center font-bold text-black mb-8">Blogs</h2>
             <div className="mt-10 font-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
                 {

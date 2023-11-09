@@ -18,7 +18,7 @@ const PopularPicks = () => {
     }, [])
 
     return (
-        <div className="md:px-10 px-5">
+        <div className="md:px-10 px-5 max-w-screen-2xl mx-auto">
             <h2 className="md:text-4xl text-3xl text-center font-bold text-black mb-8 md:mt-20 mt-10">Popular Picks</h2>
             {
                 loadingData

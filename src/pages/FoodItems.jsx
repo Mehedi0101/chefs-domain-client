@@ -29,12 +29,13 @@ const FoodItems = () => {
             .then(res => {
                 setCount(res.data.count);
                 setMenu(res.data.result);
+                window.scrollTo(0, 0);
                 setLoadingData(false);
             })
     }, [currentPage, contentPerPage, search])
 
     return (
-        <div className="pt-40 md:px-10 px-5 min-h-[80vh]">
+        <div className="pt-40 md:px-10 px-5 min-h-[80vh] max-w-screen-2xl mx-auto">
             <h2 className="md:text-4xl text-3xl text-center font-bold text-black mb-8">Our Menu</h2>
 
             <form onSubmit={handleSearch} className="flex w-full max-w-md mx-auto md:mb-16 mb-8">

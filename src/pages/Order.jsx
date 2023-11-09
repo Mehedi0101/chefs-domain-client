@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
@@ -10,6 +10,8 @@ const Order = () => {
     const { _id, name, image, price, available_quantity, made_by_email } = useLoaderData().data;
 
     const { currentUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
 
     const handleOrderConfirm = e => {
@@ -61,7 +63,9 @@ const Order = () => {
                                     'success'
                                 )
                                 axios.patch(`https://chefs-domain-server.vercel.app/foods/${_id}`, { quantity })
-                                    .then()
+                                    .then(() => {
+                                        navigate('/user-profile/my-orders');
+                                    })
                             }
                         })
                 }
