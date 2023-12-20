@@ -43,7 +43,7 @@ const Navbar = () => {
     return (
         <>
             {/* large device */}
-            <div className="hidden absolute lg:block justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-screen" style={(location.pathname) !== '/' ? navbg : {}}>
+            <div className="hidden absolute lg:block justify-between items-center text-white px-10 py-2 text-sm font-semibold z-10 w-full" style={(location.pathname) !== '/' ? navbg : {}}>
                 <div className="flex justify-between items-center max-w-[1516px] mx-auto">
                     <div className="flex-[1] text-left">
                         <Link to='/'><img className="w-40 max-w-[33%]" src={logo} alt="" /></Link>
@@ -84,7 +84,7 @@ const Navbar = () => {
                     <FiMenu onClick={() => { setShowMenu(!showMenu); setShowUser(false) }} className="text-2xl cursor-pointer" />
                     <Link to='/'><img className="h-14 max-w-full cursor-pointer" src={logo} alt="" /></Link>
                 </div>
-                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-16 bg-[#000000BB] px-8 py-5 rounded space-y-3 z-10 text-white list-none text-sm`}>
+                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-16 w-fit bg-[#000000BB] px-8 py-5 rounded space-y-3 z-10 text-white list-none text-sm`}>
                     {
                         links
                     }
